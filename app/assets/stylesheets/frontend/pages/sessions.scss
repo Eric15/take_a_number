@@ -1,0 +1,19 @@
+body.sessions {
+  form {
+    padding: 20px;
+
+    .remember-me {
+      margin-bottom: 20px;
+
+      label {
+        display: inline-block; 
+      }
+
+      input {
+        margin-right: 5px;
+        margin-top: -3px;
+      }
+
+    }
+  }
+}

@@ -1,0 +1,15 @@
+= form_for [ :admin, resource ], html: { class: "form-vertical" } do |f|
+  = render "admin/resource/errors"
+  %div{ class: "control-group" } 
+    = f.label :name, class: "control-label"
+    %div{ class: "controls" } 
+      = f.text_field :name, class: "input-xlarge", "data-rule-required" => "true"
+
+  %div{ class: "control-group" } 
+    = f.label :address, class: "control-label"
+    %div{ class: "controls" } 
+      = f.text_field :address, class: "input-xlarge", "data-rule-required" => "true"
+
+  %div{ class: "form-actions" }
+    = submit_tag "Save changes", class: "btn btn-primary"
+    = link_to "Cancel", collection_path, class: "btn"

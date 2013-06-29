@@ -1,0 +1,6 @@
+%li.active
+  %span.name
+    = sp.full_name
+  %span.actions
+    = link_to deactivate_admin_service_provider_path(sp), class: "deactivate" do
+      = icon("remove-sign")

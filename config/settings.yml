@@ -1,0 +1,14 @@
+defaults: &defaults
+  twilio:
+    account_sid: AC4b476cf59b81ec68abb19cefd0c9a842
+    auth_token: 8ac3c60376b02a6f6bbc467eb2e8fd19
+    phone: +14253187104
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

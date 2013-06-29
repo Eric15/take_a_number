@@ -1,0 +1,10 @@
+- if locations.size > 0
+  %h2 Choose a Location
+  %ul
+    - for location in locations
+      %li
+        %span.name= location.address
+        %span.actions
+          = link_to "Schedule", new_frontend_location_customer_path(location_id: location.id)
+- else
+  %h2 No Locations Are Open Now

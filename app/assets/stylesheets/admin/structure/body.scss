@@ -1,0 +1,34 @@
+html, body {
+	height: 100%;
+}
+
+body {
+  background: $white;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px !important;
+}
+
+a {
+	color: $blue;
+	&:focus {
+		outline: none;
+		text-decoration: none;
+	}
+}
+
+.ulreset {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nopadding {
+	padding: 0 !important;
+}
+
+.basic-margin{
+	&>li,  &>a{
+		margin: 0 5px 5px 0;
+	}
+}
+

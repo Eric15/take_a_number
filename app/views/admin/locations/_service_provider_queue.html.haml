@@ -1,0 +1,11 @@
+%p
+  %span= sp.full_name
+  %span= link_to "Finish", finish_admin_service_provider_path(sp)
+%p
+  %ul
+    %li
+      %span Current Event:
+      %span= sp.current_event.try(:customer_name)
+    %li
+      %span Next Event:
+      %span= sp.next_event.try(:customer_name)

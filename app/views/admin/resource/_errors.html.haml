@@ -1,0 +1,8 @@
+- unless resource.errors.blank?
+  %div{ class: "alert" }
+    %button{ type: "button", class: "close", "data-dismiss" => "alert" }
+    %h4 The following errors were encountered:
+    %p
+      %ul
+        - resource.errors.full_messages.each do |error|
+          %li= error

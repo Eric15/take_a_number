@@ -1,0 +1,16 @@
+%h1{ class: "page-header" }
+  %div{ class: "pull-left" }
+    %h1= resource_name
+
+%div{ class: "breadcrumbs" }
+  %ul
+    %li
+      = link_to "Home", admin_root_path
+      = icon("angle-right")
+    %li
+      = link_to collection_name, collection_path
+      = icon("angle-right")
+    %li
+      = link_to resource_name, resource_path
+
+= body

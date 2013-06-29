@@ -1,0 +1,39 @@
+@mixin breakpoint($width) {
+	@media (max-width : $width){
+		@content;
+	}
+}
+
+@include breakpoint(1250px){
+}
+
+@include breakpoint(1200px){
+}
+
+@include breakpoint(1100px){
+}
+
+@include breakpoint(1170px){
+}
+
+@include breakpoint(1024px){
+}
+
+@include breakpoint(890px){
+}
+
+@include breakpoint(767px){
+}
+
+@include breakpoint(480px){
+	body {
+		.wrapper{
+			width: 300px;
+			margin: 75px -150px !important;
+			top: 0;
+		}
+	}
+}
+
+@include breakpoint(350px){
+}

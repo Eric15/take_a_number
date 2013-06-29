@@ -1,0 +1,35 @@
+%h2 Sign Up for An Appointment
+= form_for [ :frontend, :location, @customer ] do |f|
+
+  - unless @customer.errors.blank?
+    %div{ class: "alert" }
+      %button{ type: "button", class: "close", "data-dismiss" => "alert" }
+      %h4 The following errors were encountered:
+      %p
+        %ul
+          - @customer.errors.full_messages.each do |error|
+            %li= error
+
+  %div{ class: "control-group" }
+    = f.label :first_name
+    %div{ class: "controls" }
+      = f.text_field :first_name, class: "input-block-level"
+
+  %div{ class: "control-group" }
+    = f.label :last_name
+    %div{ class: "controls" }
+      = f.text_field :last_name, class: "input-block-level"
+
+  %div{ class: "control-group" }
+    = f.label :phone
+    %div{ class: "controls" }
+      = f.text_field :phone, class: "input-block-level"
+
+  = f.fields_for :unscheduled_events do |fe|
+    %div{ class: "control-group" }
+      = fe.label :requested, "Request Barbers"
+      %div{ class: "controls" }
+        = fe.select :requested, service_provider_options, {}, multiple: true
+
+  %div{ class: "submit" }
+    = f.submit "Submit", class: "btn"

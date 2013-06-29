@@ -1,0 +1,6 @@
+%li.inactive
+  %span.name
+    = sp.full_name
+  %span.actions
+    = link_to activate_admin_service_provider_path(id: sp.id, location_id: location.id), class: "activate" do
+      = icon("plus-sign")

@@ -1,0 +1,77 @@
+@mixin breakpoint($width) {
+	@media (max-width : $width){
+		@content;
+	}
+}
+
+@include breakpoint(1250px){
+}
+
+@include breakpoint(1200px){
+}
+
+@include breakpoint(1100px){
+}
+
+@include breakpoint(1170px){
+}
+
+@include breakpoint(1024px){
+}
+
+@include breakpoint(890px){
+  #navigation {
+		.main-nav {
+			&>li {
+				&>a {
+					font-size: 12px;
+					padding: 10px 8px !important;
+				}
+			}
+		}
+	}
+}
+
+@include breakpoint(767px){
+  body {
+    padding: 0 !important;
+  }
+
+	.container-fluid, .container {
+		padding: 0 20px;
+	}
+
+	#navigation {
+		#brand {
+			padding-right: 0 !important;
+		}
+		.main-nav {
+			display: none;
+		}
+		.toggle-nav {
+			display: none !important;
+		}
+	}
+}
+
+@include breakpoint(480px){
+}
+
+@include breakpoint(350px){
+  #main {
+		.box {
+			.box-title {
+				h3 {
+					font-size: 16px !important;
+				}
+				.actions {
+					.btn {
+						i {
+							font-size: 12px !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}

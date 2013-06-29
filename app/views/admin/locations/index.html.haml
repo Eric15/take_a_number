@@ -1,0 +1,21 @@
+= block_to_partial "admin/resource/index" do
+  %thead
+    %tr
+      %th Name
+      %th Created At
+      %th Updated At
+      %th{ "data-nosort" => "true" } Actions
+  %tbody
+    - for item in collection do
+      %tr
+        %td= item.name
+        %td= item.created_at
+        %td= item.updated_at
+        %td
+          - if item.open?
+            = link_to "Close", close_admin_location_path(id: item.id)
+          - else
+            = link_to "Open", open_admin_location_path(id: item.id)
+          = link_to "View", resource_path(item)
+          = link_to "Edit", edit_resource_path(item)
+          = link_to "Delete", resource_path(item), method: "delete", confirm: "Are you sure?"

@@ -1,0 +1,19 @@
+body.locations {
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 30px 30px;
+  }
+
+  li {
+    padding: 10px; 
+    &:hover {
+      background-color: #eee; 
+    }
+    .actions {
+      float: right; 
+    }
+  }
+
+}

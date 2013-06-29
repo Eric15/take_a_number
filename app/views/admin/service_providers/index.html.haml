@@ -1,0 +1,16 @@
+= block_to_partial "admin/resource/index" do
+  %thead
+    %tr
+      %th Name
+      %th Created At
+      %th Updated At
+      %th{ "data-nosort" => "true" } Actions
+  %tbody
+    - for item in collection do
+      %tr
+        %td= item.full_name
+        %td= item.created_at
+        %td= item.updated_at
+        %td
+          = link_to "Edit", edit_resource_path(item)
+          = link_to "Delete", resource_path(item), method: "delete", confirm: "Are you sure?"

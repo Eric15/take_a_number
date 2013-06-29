@@ -1,0 +1,21 @@
+= form_for [:admin, resource], html: { class: "form-vertical" } do |f|
+  = render "admin/resource/errors"
+
+  %div{ class: "control-group" } 
+    = f.label :customer_id, class: "control-label"
+    %div{ class: "controls" } 
+      = f.select :customer_id, customer_options, class: "input-xlarge", "data-rule-required" => "true"
+
+  %div{ class: "control-group" } 
+    = f.label :started_at, "Start Time", class: "control-label"
+    %div{ class: "controls" } 
+      = f.datetime_select :started_at, class: "input-xlarge", "data-rule-required" => "true"
+
+  %div{ class: "control-group" }
+    = f.label :requested, "Request Barbers"
+    %div{ class: "controls" }
+      = f.select :requested, scheduled_event_service_provider_options, {}, multiple: true
+
+  %div{ class: "form-actions" }
+    = submit_tag "Save changes", class: "btn btn-primary"
+    = link_to "Cancel", collection_path, class: "btn"

@@ -1,0 +1,14 @@
+%header{ id: "navigation" }
+  %div{ class: "container-fluid" }
+    = link_to admin_root_path, id: "brand" do
+      Take A Number
+
+    %ul{ class: "main-nav" }
+      = menu_item_for :locations
+      = menu_item_for :service_providers
+      = menu_item_for :customers
+      = menu_item_for :scheduled_events
+      = menu_item_for :unscheduled_events
+
+    %a{ href: "#", class: "toggle-mobile hidden" }
+      = icon("reorder")

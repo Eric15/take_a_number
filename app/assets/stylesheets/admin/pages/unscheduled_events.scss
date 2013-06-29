@@ -1,0 +1,22 @@
+body.unscheduled_events {
+  .box {
+    ul.unscheduled_events {
+      @extend .ulreset;
+
+      li {
+        padding: 20px; 
+        border-bottom: 1px solid #eee;
+
+        .sort {
+          float: right; 
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: #eee; 
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,225 @@
+@import "colors.scss";
+
+@for $i from 1 through length($colornames){
+	$currentColorName: nth($colornames,$i);
+	$currentColor: nth($colors,$i);
+	.font-#{$currentColorName}{
+		color: $currentColor;
+	}
+	ul>li.#{$currentColorName},.label-#{$currentColorName}{
+		background: $currentColor;
+	}
+
+	.btn{
+		&.btn-#{$currentColorName}{
+			background: $currentColor;
+			color:#fff !important;
+
+			&:hover{
+				background: darken($currentColor, 10%);
+			}
+		}
+	}
+	.box{
+		&.box-color{
+			&.#{$currentColorName}{
+				.box-title{
+					background: $currentColor !important;
+					
+					@if lightness($currentColor) > lightness(#999){
+						h3{
+							color:#333;
+						}
+					}
+
+					.actions{
+						&>a{
+							&:hover{
+								color:$currentColor;
+							}
+						}
+					}
+				}
+				.btn{
+					&.btn-primary{
+						background: $currentColor;
+					}
+				}
+			}
+		}
+
+		&.box-bordered{
+			&.box-color{
+				&.#{$currentColorName}{
+					.box-title{
+						border-color:$currentColor !important;
+					}
+					.box-content{
+						border-color:$currentColor !important;
+					}
+					.slimScrollDiv{
+						border-bottom:2px solid $currentColor;
+					}
+				}
+			}
+		}
+	}
+	.theme-#{$currentColorName}{
+		#navigation{
+			.dropdown-menu{
+				border-color:$currentColor;
+				&>li{
+					&.dropdown-submenu{
+						.dropdown-menu{
+							border-top:2px solid $currentColor;
+						}
+						&:hover,&:focus{
+							&>a{
+								background: $currentColor;
+							}
+						}
+					}
+					&>a{
+						&:hover{
+							background:$currentColor;
+						}
+					}
+				}
+			}
+		}
+
+		.btn{
+			&.btn-primary{
+				background: $currentColor;
+			}
+		}
+		&.frontend{
+			background: $currentColor;
+		}
+		a{
+			color:$currentColor;
+		}
+		.btn{
+			color:#333;
+
+			&.btn-primary{
+				background: $currentColor;
+				color:#fff;
+			}
+			&.btn-inverse, &.btn-success, &.btn-danger{
+				color:#fff;
+			}
+		}
+		
+		#navigation{
+			background: $currentColor;
+			.toggle-mobile{
+				background: darken($currentColor, 15%);
+			}
+			.mobile-nav{
+				&.open{
+					background: $currentColor;
+
+					&>li{
+						&.active{
+							&>a{
+								background:darken($currentColor, 25%);
+							}
+
+							&>ul{
+								background: darken($currentColor, 25%);
+							}
+						}
+
+						&>a{
+							background: darken($currentColor, 15%);
+						}
+
+						&>ul{
+							background: darken($currentColor,15%);
+						}
+					}	
+				}
+			}
+			.main-nav{
+				&>li{
+					&.active{
+						&>a{
+							&:hover{
+								background: #fff;
+							}
+						}
+
+						&.open{
+							&>a{
+								background: #fff;
+							}
+						}
+					}
+					&.open{
+						&>a{
+							background: darken($currentColor, 15%);
+						}
+					}
+					&>a{
+						&:hover{
+							background: darken($currentColor, 15%);
+						}
+					}
+				}
+			}
+
+			.dropdown-menu{
+				border-color:$currentColor;
+				&>li{
+					&>a{
+						&:hover{
+							background: $currentColor;
+						}
+					}
+				}
+			}
+		}
+		#main{
+			.box{
+				.box-title{
+					.tabs{
+						&>li.active{
+							&>a{
+								background: $currentColor;
+							}
+						}
+					}
+				}
+
+				&.box-color{
+					.box-title{
+						background:$currentColor;
+
+						.tabs{
+							&>li{
+								&.active{
+									&>a{
+										background: #fff;
+										color:$currentColor;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				&.box-bordered{
+					&.box-color{
+						.box-title{
+							border-color:$currentColor;
+						}
+						.box-content{
+							border-color:$currentColor;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,50 @@
+= block_to_partial "admin/resource/show" do
+  %div{ class: "row-fluid" }
+    %div{ class: "span12" }
+      %div{ class: "span3" }
+        %div{ id: "service_providers", class: "box box-color box-bordered" }
+          %div{ class: "box-title" }
+            %h3
+              = icon("user")
+              %span Manage Providers
+          %div{ class: "box-content nopadding" }
+            %ul{ class: "service_providers" }
+              - for sp in service_providers
+                - if service_provider_active?(sp)
+                  = render "admin/locations/active_service_provider", sp: sp
+                - else
+                  = render "admin/locations/inactive_service_provider", sp: sp, location: resource
+      %div{ id: "events", class: "span9" }
+        %div{ class: "box box-color" }
+          %div{ class: "box-title" }
+            %h3
+              = icon("calendar")
+              %span Event Queue
+            .actions
+              = link_to refresh_admin_location_path(id: resource.id), class: "btn" do
+                = icon("refresh")
+                Refresh
+          %div{ class: "box-content nopadding" }
+
+            %table{ class: "table table-nomargin table-bordered" }
+              %thead
+                %tr
+                  %th Service Provider
+                  %th Current
+                  %th Upcoming
+                  %th Waiting
+                  %th.actions Actions
+              %tbody
+                - for sp in active_service_providers
+                  %tr
+                    %td= sp.full_name
+                    %td= started_event(sp)
+                    %td= enqueued_event(sp)
+                    %td= sp.number_waiting
+                    %td.actions
+                      = link_to finish_admin_service_provider_path(sp), class: "btn" do
+                        = icon("check")
+                        %span Finish
+     
+  :javascript
+    setTimeout(function () { document.location.reload() }, 60000)
